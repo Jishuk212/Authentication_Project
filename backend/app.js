@@ -7,9 +7,15 @@ const { errorHandler, notFound } = require("./middleware/errorMiddleware");
 
 const app = express();
 
+if (process.env.NODE_ENV === "production") {
+  app.set("trust proxy", 1);
+}
+
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:5173",
+    origin:
+      process.env.CLIENT_URL ||
+      "authenticationproject-b9z4fwp4i-alone-lover.vercel.app",
     credentials: true,
   }),
 );
