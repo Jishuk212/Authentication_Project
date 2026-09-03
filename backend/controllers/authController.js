@@ -145,7 +145,6 @@ const logout = (req, res, next) => {
 
 const getMe = async (req, res, next) => {
   try {
-    //requireAuth middleware puts the user into req.user
     return res.status(200).json({
       success: true,
       user: {
